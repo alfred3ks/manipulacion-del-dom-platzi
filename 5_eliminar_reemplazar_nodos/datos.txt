@@ -1,0 +1,68 @@
+Video 9. Eliminar nodos:
+
+Basicamente hay 3 formas de eliminar nodos:
+
+- removeChild()
+- remove()
+- replaceChild()
+
+
+- removeChild()
+
+    <div id="padre_1">
+        <h2 id="hijo_1">Hola soy un H2</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and.</p>
+    </div>
+
+Para utilizar este metodo necesitamos saber que elemento vamos a eliminar y su padre directo.
+
+Para saber cual es el padre de un elemento podemos usar el metodo parentElement:
+
+    p.parentElement;
+
+    const padre1 = document.querySelector('#padre_1');
+    const hijo1 = document.querySelector('#hijo_1');
+    console.log(hijo1);
+    padre1.removeChild(hijo1);
+
+Para verlo de forma grafica:
+
+    <div>
+        <p></p>
+    </div>
+
+    div.removeChild(p);
+
+- remove()
+
+Esta es la evolucion de removeChild, y tiene tambien unas limitantes:
+
+- Es la evolucion de removeChild,
+- No soportado por IE.
+
+Este no nos pide ningun padre ni ninguna referencia, remove por dentro usa removeChild.
+
+    <h1>Eliminar y reeplazar nodos</h1>
+
+    const referencia = document.querySelector('h1');
+    referencia.remove();
+
+- replaceChild()
+
+Para ejecutar este metodo necesitamos el padre, el elemento a reemplazar y el de referencia.
+
+    <div id="padre">
+        <h3 id="msj">Soy un H3</h3>
+    </div>
+
+    const padre = document.querySelector('#padre');
+    const h3 = document.querySelector('#msj');
+
+    const h2 = document.createElement('h2');
+
+    h2.textContent = 'Hola yo soy un H2 creado desdes JS';
+
+    padre.replaceChild(h2,h3);
+
+
+
